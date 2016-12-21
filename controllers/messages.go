@@ -42,7 +42,7 @@ func downloadImage(directory string, url string) {
 	fileString := nowString + "_" + randString + ".jpg"
 
 	//open a file for writing
-	newFile := filepath.Join(fileString)
+	newFile := filepath.Join(newpath, fileString)
 	file, err := os.Create(newFile)
 	if err != nil {
 		log.Fatal(err)
@@ -70,7 +70,7 @@ func MessageHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params
 	for key, value := range body {
 		if strings.Contains(key, "MediaUrl") {
 			mediaUrls = append(mediaUrls, only(value))
-		} else if key == "Body" && len(value) == 1 {
+		} else if key == "Body" && only(value) != "" {
 			directory = strings.Replace(strings.ToLower(only(value)), " ", "_", -1)
 		}
 	}
