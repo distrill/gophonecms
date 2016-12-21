@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+this is files
+{{ range $file := .Files }}
+<a href="/gallery/{{ $file }}">{{ $file }}</a>
+{{ end }}
+that was files

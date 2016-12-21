@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+
+This is subgallery. It has name {{ .Name }}
+{{ $name := .Name }}
+{{ range $file := .Files }}
+<img src="/public/img/gallery/{{ $name }}/{{ $file }}"/>
+{{ end }}
